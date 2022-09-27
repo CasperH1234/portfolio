@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <!---font awesome ikoner-->
+    <script src="https://kit.fontawesome.com/116d195a0c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <ul id="sidemenu">
+                <li><a href="#header">Hjem</a></li>
+                <li><a href="#about">Biografi</a></li>
+                <li><a href="#portfolio">Portefølje</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
+            </ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
+        </nav>
+<!-------------------------------intro------------------------------->
+        <div class="header-text">
+            <h1>HEJ, MIT NAVN <span>CASPER</span></h1>
+            <p>VELKOMMEN TIL MIN SIDE</p>
+
+        </div>
+    </div>
+</div>
+<!--------------------------------Om mig ----------------------------->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/user.png">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">Biografi</h1>
+                <p>Jeg har altid godt kunne lide at lave ting selv, men det lå ikke i kortene at jeg skulle blive frontend udvikler, det skete endelig ved at jeg på handelskolen havde IT på B niveau hvor vi havde lidt om HTML, CSS & Python.
+                 Derefter blev jeg bare hooked af det, og har især fået en stor kærlighed for javascript og dens frameworks. Som person er jeg meget selvstændig, og meget strategisk anlagt, jeg kan godt lide at have fuldendt plan før jeg går i gang med noget. 
+                <br>
+                <br>
+                Det som nok skiller mig ud, er at jeg har prøvet at sidde på den anden side af bordet. Jeg har en mor som har sin egen webshop, hvor jeg har hjulpet meget til at med at finde virksomheder der kunne udvikle en webshop til hende, det har gjort at jeg har set de gode og mindre gode sider af branchen. </p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Faglighed</p>
+                    <p class="tab-links" onclick="opentab('experience')">Erhervserfaring</p>
+                    <p class="tab-links" onclick="opentab('education')">Uddannelse</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>UI/UX</span></li>
+                        <li><span>HTML</span></li>
+                        <li><span>CSS</span></li>
+                        <li><span>Javascript</span></li>
+                        <li><span>React</span></li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>2021  -   2022</span><br>Vinkonsulent<br>Bilka</li>
+                        <li><span>2020  -   2021</span><br>Web & IT Ansvarlig<br>GroomUs</li>
+                        <li><span>2018  -   2019</span><br>Produktionsmedarbejder<br>GM-Plast</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2021  -   2023</span><br> Multimediedesigner<br>Erhvervsakaemi Aarhus </li>
+                        <li><span>2019  -   2021</span><br>EUX Business<br>Aarhus Business College </li>
+
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!--------------------------------potefølje----------------------------------->
+ 
+
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title"> projekter</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/work1.png">
+                <div class="layer">
+                    <h3>madhjælper</h3>
+                    <p>Jeg har lavet en madhjælper, hvor du kan få masser af god inspiration. Der er brugt HTML, CSS & Javascript samt en esktern API.</p>
+                    <a href="madhjælper/madhj.html" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work2.png">
+                <div class="layer">
+                    <h3>Valutakurser beregner</h3>
+                    <p>Valutakurser begregner til når du skal til udlandet eller købe produkter online. Der er brugt HTML, CSS & Javascript samt en ekstern API.</p>
+                    <a href="Valutakurser/Valutakurser.html" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work3.png">
+                <div class="layer">
+                    <h3>Hangman</h3>
+                    <p>Et sjovt spil hangman. Der er brugt HTML, CSS & Javascript.</p>
+                    <a href="hangman/hangman.html" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!----------------------------------------------kontakt------------------------------------------------->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-right"> 
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Dit Navn" required>
+                    <input type="email" name="Email" placeholder="Din Email" required>
+                    <textarea name="Message" rows="6" placeholder="Hvad har du på hjertet? :)"></textarea>
+                    <button type="submit" class="btn">Send</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+
+</script>
+
+<script>
+        var sidemenu = document.getElementById("sidemenu");
+
+function openmenu(){
+    sidemenu.style.right = "0";
+}
+
+function closemenu(){
+    sidemenu.style.right = "-200px";
+}
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzQcRidQzPf2hnrinobKhRo8E_jyxLkKIKIamzAbKAsRV16jPhoquvNfFcudquo2STI/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Beskeden er sendt"
+            setTimeout(function(){
+                msg.innerHTML =""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Fejl!', error.message))
+    })
+  </script>
+</body>
+</html>
